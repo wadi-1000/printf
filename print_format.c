@@ -20,8 +20,17 @@ int _printf(const char *format, ...)
 	if (format)
 	{
 		while(format[i])
-		{
-		
+		{// big idea %
+			if (format != %)
+			{
+				printf("");
+			}
+			else 
+			{
+				i++;
+				if (formart == 'c')
+					printf("");
+			}
 		}
 	}
 }
