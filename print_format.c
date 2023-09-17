@@ -24,22 +24,21 @@ int _printf(const char *format, ...)
 			{
 				printf("%c", format[i]);
 				track++;
-				i++;
-			}
+				i++; }
 			else
 			{
 				i++;
 				if (format[i] == 'c')
 				{
-					track += print_char(list); 
+					track += print_char(list);
 					i++; }
 				if (format[i] == '%')
 				{
-					track += print_perc(list); 
+					track += print_perc(list);
 					i++; }
 				if (format[i] == 's')
 				{
-					track += print_string(list); 
+					track += print_string(list);
 					i++; }
 				if (format[i] == 'd' || format[i] == 'i')
 				{
@@ -51,5 +50,4 @@ int _printf(const char *format, ...)
 					track++; }
 			}}}
 	va_end(list);
-	return (track);
-}
+	return (track); }
