@@ -31,37 +31,20 @@ int _printf(const char *format, ...)
 				i++;
 				if (format[i] == 'c')
 				{
-					printf("%c", va_arg(list, int));
-					track++;
-					i++; }
+					track += print_char(list); }
 				if (format[i] == '%')
 				{
-					printf("%%", va_arg(list, char *));
-					track++;
-					i++; }
+					track += print_perc(list); }
 				if (format[i] == 's')
 				{
-					char *str = va_arg(list, char *);
-
-					while (*str)
-					{
-						printf("%c", *str);
-						track++;
-						str++; }
-					i++; 
-				}
+					track += print_string(list); }
 				if (format[i] == 'd' || format[i] == 'i')
 				{
-					printf("%d", va_arg(list, int));
-					track++;
-					i++;
-				}
+					track += print_int(list); }
 				if (format[i] == 'b')
 				{
 					printf("%b", va_arg(list, int));
-					track++;
-					i++;
-				}
+					track++; }
 			}}}
 	va_end(list);
 	return (track);
