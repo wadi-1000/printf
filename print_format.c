@@ -3,13 +3,12 @@
 #include <stdarg.h>
 
 /**
- * printf - function that produces output according to a format.
- * @format: a character of strings
- * ...: variable number of arguments
+ * _printf - function that produces output according to a given input
+ * @format: charater, string to be printed
  *
- * Return:  the number of characters printed excluding the null byte.
- *
+ * Return: Length of the string
  */
+
 int _printf(const char *format, ...)
 {
 	int i = 0;
@@ -17,10 +16,9 @@ int _printf(const char *format, ...)
 	va_list list;
 
 	va_start(list, format);
-
 	if (format)
 	{
-		while(format[i])
+		while (format[i])
 		{
 			if (format[i] != '%')
 			{
@@ -31,34 +29,25 @@ int _printf(const char *format, ...)
 			else
 			{
 				i++;
-				if (format[i] == 'c') 
+				if (format[i] == 'c')
 				{
 					printf("%c", va_arg(list, int));
 					track++;
-					i++;
-				}
+					i++; }
 				if (format[i] == '%')
 				{
 					printf("%%", va_arg(list, char *));
 					track++;
-					i++;
-				}
+					i++; }
 				if (format[i] == 's')
 				{
 					char *str = va_arg(list, char *);
+
+					while (*str)
 					{
-						while (*str)
-						{
-							printf("%c", *str);
-							track++;
-							str++;
-						}
-			}
-					i++;
-		}
-	}
-		}
-	}
+						printf("%c", *str);
+						track++;
+						str++; }
+					i++; }}}}
 	va_end(list);
-	return (track);
-}
+	return (track); }
