@@ -40,7 +40,8 @@ int _printf(const char *format, ...)
 					track += print_string(list); }
 				if (format[i] == 'd' || format[i] == 'i')
 				{
-					track += print_int(list); }
+					track += print_int(list);
+					i++; }
 				if (format[i] == 'b')
 				{
 					printf("%b", va_arg(list, int));

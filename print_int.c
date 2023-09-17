@@ -10,12 +10,10 @@
  */
 int print_int(va_list list)
 {
-	int i = 0;
 	int track = 0;
 
 	printf("%d", va_arg(list, int));
 	track++;
-	i++;
 	return (track);
 
 }
