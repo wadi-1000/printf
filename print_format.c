@@ -12,25 +12,53 @@
  */
 int _printf(const char *format, ...)
 {
-	int i;
+	int i = 0;
+	int track = 0;
 	va_list list;
 
-	var_start(list, format);
+	va_start(list, format);
 
 	if (format)
 	{
 		while(format[i])
-		{// big idea %
-			if (format != %)
+		{
+			if (format[i] != '%')
 			{
-				printf("");
+				printf("%c", format[i]);
+				track++;
+				i++;
 			}
-			else 
+			else
 			{
 				i++;
-				if (formart == 'c')
-					printf("");
+				if (format[i] == 'c') 
+				{
+					printf("%c", va_arg(list, int));
+					track++;
+					i++;
+				}
+				if (format[i] == '%')
+				{
+					printf("%%", va_arg(list, char *));
+					track++;
+					i++;
+				}
+				if (format[i] == 's')
+				{
+					char *str = va_arg(list, char *);
+					{
+						while (*str)
+						{
+							printf("%c", *str);
+							track++;
+							str++;
+						}
 			}
+					i++;
 		}
 	}
+		}
+	}
+	va_end(list);
+	return (track);
 }
