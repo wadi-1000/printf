@@ -48,6 +48,21 @@ int _printf(const char *format, ...)
 						printf("%c", *str);
 						track++;
 						str++; }
-					i++; }}}}
+					i++; 
+				}
+				if (format[i] == 'd' || format[i] == 'i')
+				{
+					printf("%d", va_arg(list, int));
+					track++;
+					i++;
+				}
+				if (format[i] == 'b')
+				{
+					printf("%b", va_arg(list, int));
+					track++;
+					i++;
+				}
+			}}}
 	va_end(list);
-	return (track); }
+	return (track);
+}
