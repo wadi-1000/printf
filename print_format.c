@@ -47,8 +47,8 @@ int _printf(const char *format, ...)
 					i++; }
 				if (format[i] == 'b')
 				{
-					printf("%b", va_arg(list, int));
-					track++; }
+					track += print_bit(list);
+					i++; }
 			}}}
 	va_end(list);
 	return (track); }
