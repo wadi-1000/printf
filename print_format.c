@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdarg.h>
+#include <unistd.h>
 
 /**
  * _printf - function that produces output according to a given input
@@ -22,7 +23,7 @@ int _printf(const char *format, ...)
 		{
 			if (format[i] != '%')
 			{
-				printf("%c", format[i]);
+				write (1, &format[i], 1);
 				track++;
 				i++; }
 			else

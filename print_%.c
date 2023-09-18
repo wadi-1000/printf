@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdarg.h>
+#include <unistd.h>
 
 /**
  * print_perc - Prints a percentage sign.
@@ -10,12 +11,13 @@
  */
 int print_perc(va_list list)
 {
-	int i = 0;
 	int track = 0;
+	char percent = '%';
+	(void)list;	
 
-	printf("%%", va_arg(list, char *));
+	write (1, &percent, 1);
 	track++;
-	i++;
+
 	return (track);
 }
 
