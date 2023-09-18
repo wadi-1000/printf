@@ -3,64 +3,44 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-/**
- * print_int - Prints an integer.
- * @list: Stores an integer to be printed.
- *
- * Return: Character
- */
+int count_digits(int num);
+
 int print_int(va_list list)
 {
     int track = 0;
     int num = va_arg(list, int);
-    int sign = 1;
-    int temp, num_digits, i, j;
-    char digit;
 
     if (num == 0)
     {
         write(1, "0", 1);
-        track++;
-        return (track);
+        track += 1;
     }
-    if (num < 0)
+    else if (num == -1) 
     {
-        write(1, "-", 1);
-        track++;
-        num = -num;
-        sign = -1;
+        write(1, "-1", 2);
+        track += 2;
     }
-
-    temp = num;
-    num_digits = 0;
-
-    while (temp > 0)
+    else
     {
-        temp /= 10;
-        num_digits++;
+        printf("%d", num);
+        track += count_digits(num);
     }
-
-    i = 1;
-    while (i < num_digits)
-    {
-        temp = num;
-        j = 1;
-        while (j < num_digits - i)
-        {
-            temp /= 10;
-            j++;
-        }
-
-        digit = (char)(temp % 10 + '0');
-        write(1, &digit, 1);
-        track++;
-        i++;
-
-    digit = (char)(num % 10 + '0');
-    write(1, &digit, 1);
-    track++;
-
-    return (track * sign);
-    }
-    return (track * sign);
+    
+    return (track);
 }
+
+int count_digits(int num)
+{
+    int count = 0;
+    if (num == 0)
+    {
+        return 1;
+    }
+    while (num != 0)
+    {
+        num /= 10;
+        count++;
+    }
+    return (count);
+}
+
