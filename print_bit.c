@@ -42,5 +42,5 @@ int print_bit(va_list list)
 		}
 		write(1, "\n", 1);
 	}
-	return (track)
+	return (track);
 }
