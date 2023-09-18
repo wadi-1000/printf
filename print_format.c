@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 		{
 			if (format[i] != '%')
 			{
-				write (1, &format[i], 1);
+				write(1, &format[i], 1);
 				track++;
 				i++; }
 			else
@@ -44,11 +44,7 @@ int _printf(const char *format, ...)
 				if (format[i] == 'd' || format[i] == 'i')
 				{
 					track += print_int(list);
-					i++; }
-				/*if (format[i] == 'b')
-				{
-					printf("%b", va_arg(list, int));
-					track++; }*/
+					i++;
 			}}}
 	va_end(list);
 	return (track); }

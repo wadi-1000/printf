@@ -13,9 +13,9 @@ int print_perc(va_list list)
 {
 	int track = 0;
 	char percent = '%';
-	(void)list;	
+	(void)list;
 
-	write (1, &percent, 1);
+	write(1, &percent, 1);
 	track++;
 
 	return (track);

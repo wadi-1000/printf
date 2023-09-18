@@ -13,9 +13,11 @@ int print_char(va_list list)
 {
 	int i = 0;
 	int track = 0;
-	
+
 	char c = (char)va_arg(list, int);
+
 	write(1, &c, 1);
+
 	track++;
 	i++;
 	return (track);
