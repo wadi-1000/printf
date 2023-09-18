@@ -15,8 +15,16 @@ int print_char(va_list list)
 	int track = 0;
 	
 	char c = (char)va_arg(list, int);
-	write(1, &c, 1);
-	track++;
-	i++;
+	if ( c == '\0')
+	{
+		write(1, "\\0", 2);
+		track += 2;
+	}
+	else
+	{
+		write(1, &c, 1);
+		track++;
+		i++;
+	}
 	return (track);
 }

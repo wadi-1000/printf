@@ -45,10 +45,10 @@ int _printf(const char *format, ...)
 				{
 					track += print_int(list);
 					i++; }
-				if (format[i] == 'b')
+				/*if (format[i] == 'b')
 				{
 					printf("%b", va_arg(list, int));
-					track++; }
+					track++; }*/
 			}}}
 	va_end(list);
 	return (track); }
