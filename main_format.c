@@ -1,9 +1,6 @@
 #include "main.h"
-
-int main(void)
 #include <limits.h>
 #include <stdio.h>
-#include "main.h"
 
 /**
  * main - Entry point
@@ -12,7 +9,7 @@ int main(void)
  */
 int main(void)
 {
-	/*int len;
+	int len;
 	int len2;
 	unsigned int ui;
 	void *addr;
@@ -43,8 +40,7 @@ int main(void)
 	printf("Len:[%d]\n", len2);
 	_printf("Unknown:[%r]\n");
 	printf("Unknown:[%r]\n");
-	return (0);*/
-
-	_printf("%c", 'J');
+	_printf("%c\n", 'J');
+	_printf("%b\n", 3);
 	return (0);
 }

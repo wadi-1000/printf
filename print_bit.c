@@ -1,7 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-#include <unistd.h>
-#include <stdarg.h>
 
 /**
  * print_bit - converts an integer in decimal to binary
@@ -12,12 +9,11 @@
 
 int print_bit(va_list list)
 {
-	int binary[64];
+	int binary[32];
 	int k;
 	int j;
-	int i = 0;
 	int track = 0;
-	int num = (int) va_arg(list char);
+	int num = va_arg(list, int);
 
 	if (num == 0)
 	{
