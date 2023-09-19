@@ -25,7 +25,7 @@ int print_bit(va_list list)
 		k = 0;
 		while (num > 0)
 		{
-			binary[i] = num % 2;
+			binary[k] = num % 2;
 			num = num / 2;
 			k++;
 		}
