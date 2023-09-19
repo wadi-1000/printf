@@ -12,7 +12,7 @@ int print_perc(va_list list)
 	char percent = '%';
 	char character = (char)va_arg(list, int);
 	(void)list;
-	
+
 	if (character == '\0')
 	{
 		write(1, &percent, 1);

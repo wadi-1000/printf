@@ -1,7 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdarg.h>
-#include <unistd.h>
 
 /**
  * print_int_recursive - Prints an integer recursively.
@@ -10,30 +7,25 @@
  */
 void print_int_recursive(int num, int *track)
 {
-    char digit;
+	char digit;
 
-    if (num == 0)
-    {
-        write(1, "0", 1);
-        (*track)++;
-        return;
-    }
-
-    if (num < 0)
-    {
-        write(1, "-", 1);
-        (*track)++;
-        num = -num;
-    }
-
-    if (num / 10 != 0)
-    {
-        print_int_recursive(num / 10, track);
-    }
-
-    digit = (char)(num % 10 + '0');
-    write(1, &digit, 1);
-    (*track)++;
+	if (num == 0)
+	{
+		write(1, "0", 1);
+		(*track)++;
+		return;
+	}
+	if (num < 0)
+	{
+		write(1, "-", 1);
+		(*track)++;
+		num = -num;
+	}
+	if (num / 10 != 0)
+		print_int_recursive(num / 10, track);
+	digit = (char)(num % 10 + '0');
+	write(1, &digit, 1);
+	(*track)++;
 }
 
 /**
@@ -44,26 +36,25 @@ void print_int_recursive(int num, int *track)
  */
 int print_len(va_list list)
 {
-    int track = 0;
-    char *str = va_arg(list, char *);
+	int track = 0;
+	char *str = va_arg(list, char *);
 
-    if (str == NULL)
-    {
-        write(1, "(null)", 6);
-        track += 6;
-    }
-    else
-    {
-	    int len = 0;
-	    while (str[len] != '\0')
-        {
-            len++;
-        }
+	if (str == NULL)
+	{
+		write(1, "(null)", 6);
+		track += 6;
+	}
+	else
+	{
+		int len = 0;
 
-        track += len;
-    }
-
-    return track;
+		while (str[len] != '\0')
+		{
+			len++;
+		}
+		track += len;
+	}
+	return (track);
 }
 
 
@@ -75,11 +66,10 @@ int print_len(va_list list)
  */
 int print_int(va_list list)
 {
-    int track = 0;
-    int num = va_arg(list, int);
+	int track = 0;
+	int num = va_arg(list, int);
 
-    print_int_recursive(num, &track);
-
-    return (track);
+	print_int_recursive(num, &track);
+	return (track);
 }
 

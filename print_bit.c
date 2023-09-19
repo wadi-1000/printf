@@ -16,10 +16,7 @@ int print_bit(va_list list)
 	int num = va_arg(list, int);
 
 	if (num == 0)
-	{
 		write(1, "0", 1);
-		write(1, "\n", 1);
-	}
 	else
 	{
 		k = 0;
@@ -36,7 +33,6 @@ int print_bit(va_list list)
 			write(1, &binary_char, 1);
 			track++;
 		}
-		write(1, "\n", 1);
 	}
 	return (track);
 }

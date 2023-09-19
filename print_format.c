@@ -22,48 +22,32 @@ int _printf(const char *format, ...)
 		{
 			if (format[i] != '%')
 			{
-				write (1, &format[i], 1);
-				track++;
-				i++; }
+				write(1, &format[i], 1);
+				track++; }
 			else
 			{
 				i++;
 				if (format[i] == '\0')
-                                {
-                                    write(1, "-1", 2);
-                                    track += 2;
-                                    break; 
-                                }
-				if (format[i] == '%') {
+				{
+					write(1, "-1", 2);
+					track += 2;
+					break; }
+				if (format[i] == '%')
+				{
 					write(1, "%", 1);
-					track++;
-					i++;
-				}
-				if (format[i] == 'c')
+					track++; }
+				if (format[i] == 'c' || format[i] == 'c' || format[i] == 'b'
+						|| format[i] == 'd' || format[i] == 'i')
 				{
-					track += print_char(list);
-					i++; }
-				else if (format[i] == 's')
-				{
-					track += print_string(list);
-					i++; }
-				else if (format[i] == 'd' || format[i] == 'i')
-				{
-					track += print_int(list);
-					i++; }
-				else if (format[i] == 'b')
-				{
-					track += print_bit(list);
-					i++;
-				}
+					char c = format[i];
+
+					get_print(list, c); }
 				else
 				{
-					write(1, "%", 1);
-					track++;
-					write(1, &format[i], 1);
-					track++;
-					i++;
-				}
-			}}}
+						write(1, "%", 1);
+						write(1, &format[i], 1);
+				}}
+			i++;
+		}}
 	va_end(list);
 	return (track); }
