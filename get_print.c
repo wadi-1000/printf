@@ -9,14 +9,18 @@
  * Return: Nothing
  */
 
-void get_print(va_list list, char c)
+int get_print(va_list list, char c)
 {
+	int track;
+
+	track = 0;
 	if (c == 'c')
-		print_char(list);
+		track += print_char(list);
 	else if (c == 's')
-		print_string(list);
+		track += print_string(list);
 	else if (c == 'b')
-		print_bit(list);
+		track += print_bit(list);
 	else if (c == 'd' || c == 'i')
-		print_int(list);
+		track += print_int(list);
+	return (track);
 }

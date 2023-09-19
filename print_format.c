@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 					track++; }
 				else if (format[i] == 'c' || format[i] == 's' || format[i] == 'b'
 						|| format[i] == 'd' || format[i] == 'i')
-					get_print(list, format[i]);
+					track += get_print(list, format[i]);
 				else
 				{
 						write(1, "%", 1);
