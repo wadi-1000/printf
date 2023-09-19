@@ -11,6 +11,8 @@ int print_perc(va_list list)
 	int track = 0;
 	char percent = '%';
 	char character = (char)va_arg(list, int);
+
+
 	(void)list;
 
 	if (character == '\0')
