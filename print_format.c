@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 						|| format[i] == 'd' || format[i] == 'i')
 				{
 					char c = format[i];
-					
+
 					get_print(list, c); }
 				else
 				{

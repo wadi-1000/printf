@@ -3,8 +3,8 @@
 /**
  * get_print - gets the correct print
  * function to display the given message
- * @f: function pointer;
  * @list: message to be displayed
+ * @c: format specifier
  *
  * Return: Nothing
  */
