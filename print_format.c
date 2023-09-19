@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdarg.h>
-#include <unistd.h>
 
 /**
  * _printf - function that produces output according to a given input
@@ -24,29 +23,31 @@ int _printf(const char *format, ...)
 			if (format[i] != '%')
 			{
 				write(1, &format[i], 1);
-				track++;
-				i++; }
+				track++; }
 			else
 			{
 				i++;
-				if (format[i] == 'c')
+				if (format[i] == '\0')
 				{
-					track += print_char(list);
-					i++; }
+					write(1, "-1", 2);
+					track += 2;
+					break; }
 				if (format[i] == '%')
 				{
-					track += print_perc(list);
-					i++; }
-				if (format[i] == 's')
+					write(1, "%", 1);
+					track++; }
+				if (format[i] == 'c' || format[i] == 'c' || format[i] == 'b'
+						|| format[i] == 'd' || format[i] == 'i')
 				{
-					track += print_string(list);
-					i++; }
-				if (format[i] == 'd' || format[i] == 'i')
+					char c = format[i];
+					
+					get_print(list, c); }
+				else
 				{
-					track += print_int(list);
-					i++;
-			}}}
+						write(1, "%", 1);
+						write(1, &format[i], 1);
+				}}
+			i++;
+		}}
 	va_end(list);
-	}
-	return (track);
-}
+	return (track); }
