@@ -32,11 +32,11 @@ int _printf(const char *format, ...)
 					write(1, "-1", 2);
 					track += 2;
 					break; }
-				if (format[i] == '%')
+				else if (format[i] == '%')
 				{
-					write(1, "%", 1);
+					write(1, &format[i], 1);
 					track++; }
-				if (format[i] == 'c' || format[i] == 's' || format[i] == 'b'
+				else if (format[i] == 'c' || format[i] == 's' || format[i] == 'b'
 						|| format[i] == 'd' || format[i] == 'i')
 					get_print(list, format[i]);
 				else
