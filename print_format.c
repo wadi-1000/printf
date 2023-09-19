@@ -36,12 +36,9 @@ int _printf(const char *format, ...)
 				{
 					write(1, "%", 1);
 					track++; }
-				if (format[i] == 'c' || format[i] == 'c' || format[i] == 'b'
+				if (format[i] == 'c' || format[i] == 's' || format[i] == 'b'
 						|| format[i] == 'd' || format[i] == 'i')
-				{
-					char c = format[i];
-
-					get_print(list, c); }
+					get_print(list, format[i]);
 				else
 				{
 						write(1, "%", 1);
