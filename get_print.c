@@ -28,10 +28,10 @@ int get_print(va_list list, char c)
 		track += unsigned_hex(list);
 	else if (c == 'X')
 		track += unsigned_hex_uppercase(list);
-	/*
-	 * else if (c == 'p')
-	 * track += print_pointer(list);
-	 */
+	else if (c == 'S')
+                track += print_String(list);
+	else if (c == 'p')
+		track += print_pointer(list);
 	else if (c == 'd' || c == 'i')
 		track += print_int(list);
 	return (track);

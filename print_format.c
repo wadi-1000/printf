@@ -39,7 +39,7 @@ int _printf(const char *format, ...)
 				else if (format[i] == 'c' || format[i] == 's' || format[i] == 'b'
 						|| format[i] == 'd' || format[i] == 'i' || format[i] == 'u'
 						|| format[i] == 'o' || format[i] == 'x'
-						|| format[i] == 'X' || format[i] == 'p')
+						|| format[i] == 'X' || format[i] == 'p' || format[i] == 'S')
 					track += get_print(list, format[i]);
 				else
 				{
