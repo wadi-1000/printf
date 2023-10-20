@@ -37,7 +37,9 @@ int _printf(const char *format, ...)
 					write(1, &format[i], 1);
 					track++; }
 				else if (format[i] == 'c' || format[i] == 's' || format[i] == 'b'
-						|| format[i] == 'd' || format[i] == 'i')
+						|| format[i] == 'd' || format[i] == 'i' || format[i] == 'u'
+						|| format[i] == 'o' || format[i] == 'x'
+						|| format[i] == 'X' || format[i] == 'p')
 					track += get_print(list, format[i]);
 				else
 				{
@@ -46,5 +48,4 @@ int _printf(const char *format, ...)
 			i++;
 		}}
 	va_end(list);
-
 	return (track); }

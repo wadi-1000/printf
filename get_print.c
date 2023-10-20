@@ -20,6 +20,18 @@ int get_print(va_list list, char c)
 		track += print_string(list);
 	else if (c == 'b')
 		track += print_bit(list);
+	else if (c == 'u')
+		track += unsigned_decimal(list);
+	else if (c == 'o')
+		track += unsigned_octal(list);
+	else if (c == 'x')
+		track += unsigned_hex(list);
+	else if (c == 'X')
+		track += unsigned_hex_uppercase(list);
+	/*
+	 * else if (c == 'p')
+	 * track += print_pointer(list);
+	 */
 	else if (c == 'd' || c == 'i')
 		track += print_int(list);
 	return (track);
